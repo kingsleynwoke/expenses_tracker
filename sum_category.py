@@ -21,7 +21,7 @@ def create_category_data():
 
 def sum_category_expenses():
     """
-    sum amount of each category expenses
+    Sum amount of each category expenses
     """
     sum_dictionary = {}
     data = create_category_data()

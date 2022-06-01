@@ -16,8 +16,8 @@ def income_expense():
 
 def create_random_data():
     """"
-    We need data to do analysis, since we don't have any we randomely 
-    createdone random values for date, amount(cost_in Euros),name and categories. 
+    We need data to do our analysis, since we don't have any we randomely 
+    generated one using numpy random module.
     """
     #np.random.seed(0)
     start_date = dt.strptime("2022-01-01", "%Y-%m-%d")
@@ -41,11 +41,10 @@ def create_random_data():
 
 def add_expense_with_category():
     """
-    Take user input for each category of expenses, then update 
+    Take user input for each category of expenses, then update the
     create_random_data() function with these informations.
 
     Manipulate the data using pandas, read and write it to json and text files.
-
     """
     list_of_entries = create_random_data()
     print("How many data do you want to add, note 0 --> nothing to added.")

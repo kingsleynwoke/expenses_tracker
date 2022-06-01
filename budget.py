@@ -5,7 +5,7 @@ from sum_category import sum_category_expenses
 def check_budget():
     """
     Compare budget allocation against expenses for each category. The following 
-    values were allocated as a percentage of expenses for each category:
+    values were allocated as a percentage:
     party_bgt = 0.15,    grocery_bgt = 0.3,  charity_bgt = 0.05,   misc_bgt = 0.1,
     clothing_bgt = 0.1,  cosmetic_bgt = 0.1, transport_bgt = 0.1,  insurance_bgt = 0.1   
     """

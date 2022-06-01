@@ -16,7 +16,7 @@ def display_options():
 
 def summary():
     """
-    Based on user input above execute the if statements.
+    Based on user input execute the following.
     """
     user_choice = display_options()
     while user_choice not in ["a", "b", "c", "d"]:

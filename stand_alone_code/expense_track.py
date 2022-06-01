@@ -8,7 +8,7 @@ import json
 
 def income_expense():
     """
-    Take income from user and allocate amount for expenses
+    Take income from user and allocate amount for expenses.
     """
     income = float(input("Please enter your income for the year: "))
     saving = 0.2 * income  # 20% of income
@@ -17,8 +17,8 @@ def income_expense():
 
 def create_random_data():
     """"
-    We need data to do analysis, since we don't have any we randomely 
-    createdone random values for date, amount(cost_in Euros),name and categories. 
+    We need data to do our analysis, since we don't have any we randomely 
+    generated one using numpy random module.
     """
     #np.random.seed(0)
     start_date = dt.strptime("2022-01-01", "%Y-%m-%d")
@@ -42,11 +42,10 @@ def create_random_data():
 
 def add_expense_with_category():
     """
-    Take user input for each category of expenses, then update 
+    Take user input for each category of expenses, then update the
     create_random_data() function with these informations.
 
     Manipulate the data using pandas, read and write it to json and text files.
-
     """
     list_of_entries = create_random_data()
     print("How many data do you want to add, note 0 --> nothing to added.")
@@ -115,7 +114,7 @@ def create_category_data():
 
 def sum_category_expenses():
     """
-    sum amount of each category expenses
+    Sum amount of each category expenses
     """
     sum_dictionary = {}
     data = create_category_data()
@@ -132,7 +131,7 @@ def print_sum_category_expenses():
 def check_budget():
     """
     Compare budget allocation against expenses for each category. The following 
-    values were allocated as a percentage of expenses for each category:
+    values were allocated as a percentage:
     party_bgt = 0.15,    grocery_bgt = 0.3,  charity_bgt = 0.05,   misc_bgt = 0.1,
     clothing_bgt = 0.1,  cosmetic_bgt = 0.1, transport_bgt = 0.1,  insurance_bgt = 0.1   
     """
@@ -160,7 +159,7 @@ def check_budget():
 def plots():
     """
     Plots bar and pie chart for visualising summary of remaing
-    balance and summary ofexpenses
+    balance and expenses.
     """
     #Create figures
     plt.style.use(['science', 'notebook', 'grid'])
@@ -213,7 +212,7 @@ def display_options():
 
 def summary():
     """
-    Based on user input above execute the if statements.
+    Based on user input execute the following.
     """
     user_choice = display_options()
     while user_choice not in ["a", "b", "c", "d"]:
@@ -235,7 +234,7 @@ def summary():
 def final_function():
     """
     This is the calling code, also know known as the main function.
-    It calls all the codes above it.
+    It calls all the needed codes above it.
     """
     #user_choice = display_options()
     while True:
