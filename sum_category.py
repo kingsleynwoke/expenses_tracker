@@ -34,7 +34,6 @@ def print_sum_category_expenses():
     for key, value in sum_category_expenses().items():
         print(f"{key.title()}: €{value:,}")
     print(f"\nTotal expenses = €{round(sum(sum_category_expenses().values()), 2):,}")
-    print(f"\nTotal expenses = €{round(sum(sum_category_expenses().values()), 2):,}")
 
 if __name__ == '__main__':
     print_sum_category_expenses()
