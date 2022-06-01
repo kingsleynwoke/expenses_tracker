@@ -27,11 +27,13 @@ def summary():
     if user_choice == "a":
         add_expense_with_category()
     elif user_choice == "b":
-        print("These are the records so far: \n")
+        print("##################################################")
+        print("These are the records so far")
+        print("##################################################\n")
         txt_read_from_file()
     elif user_choice == "c":
-        print("The sum of expenses so far are: \n")
         print_sum_category_expenses()
+        print("The allocated savings and sum of expenses so far are: \n")
     elif user_choice == "d":
         print("Enter your income in numbers e.g 37561, 45000 etc.\n")
         plots()

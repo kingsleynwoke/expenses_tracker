@@ -8,4 +8,4 @@ def income_expense():
     return expenses, saving
 
 if __name__ == '__main__':
-    income_expense()
+    print(income_expense())

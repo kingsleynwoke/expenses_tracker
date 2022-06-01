@@ -9,10 +9,9 @@ def check_budget():
     party_bgt = 0.15,    grocery_bgt = 0.3,  charity_bgt = 0.05,   misc_bgt = 0.1,
     clothing_bgt = 0.1,  cosmetic_bgt = 0.1, transport_bgt = 0.1,  insurance_bgt = 0.1   
     """
-    expense_data, saving = income_expense()
+    expense_data, saved_amount = income_expense()
     from_sum_dictionary = sum_category_expenses()
-    item_category = ("party", "grocery", "charity", "misc", "clothing", 
-                            "cosmetic", "transport", "insurance")
+    item_category = ("party", "grocery", "charity", "misc", "clothing", "cosmetic", "transport", "insurance")
     budget_category = tuple(np.array([0.15, 0.3, 0.05, 0.1, 0.1, 0.1, 0.1, 0.1]) * expense_data)   
     balance_dict = {}
 
@@ -34,4 +33,4 @@ def check_budget():
     return balance_dict
 
 if __name__ == '__main__':
-    check_budget()
+    print(check_budget())

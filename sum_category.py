@@ -1,4 +1,5 @@
 from read_and_write import json_read_from_file
+from income import income_expense
 
 def create_category_data():
     """
@@ -6,6 +7,7 @@ def create_category_data():
     as key and their respective amount as values.
     """
     expenses_with_category = json_read_from_file()
+
     new_category = []
     for index_value in expenses_with_category:
         new_category.append(index_value['category'])
@@ -31,9 +33,18 @@ def sum_category_expenses():
 
 def print_sum_category_expenses():
     """Print sum of expenses for each category"""
+    expense_amt, saved_amt = income_expense()
+    print()
     for key, value in sum_category_expenses().items():
         print(f"{key.title()}: €{value:,}")
-    print(f"\nTotal expenses = €{round(sum(sum_category_expenses().values()), 2):,}")
+    
+    summ = round(sum(sum_category_expenses().values()), 2)
+    print("\n##############################################")
+    print(f"Total expenditure = €{summ:,}")
+    print(f"Amount allocated for expenses = €{round(expense_amt, 2):,}")
+    print(f"Amount allocated for savings = €{round(saved_amt, 2):,}")
+    print("##############################################")
+    
 
 if __name__ == '__main__':
     print_sum_category_expenses()

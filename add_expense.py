@@ -49,7 +49,7 @@ def add_expense_with_category():
     """
     list_of_entries = create_random_data()
     categ = ("cosmetic", "party", "charity", "grocery", "clothing", "transport", "insurance", "misc")
-    
+
     print("How many data do you want to add, note 0 --> nothing to added.")
     number_of_expenditure = int(input("Enter your choice e.g 0, 1, 2, etc.: "))
     
@@ -71,9 +71,11 @@ def add_expense_with_category():
 
             while True:
                 cost_in_Euros = input("Enter the amount spent in Euros: ")
-                if cost_in_Euros.isdigit():
+                if cost_in_Euros.isnumeric() or type(cost_in_Euros)==float:
                     cost_in_Euros = float(cost_in_Euros)
-                else:
+                try:
+                    cost_in_Euros = float(cost_in_Euros)
+                except ValueError:
                     print("\nInvalid entry, amount must be number: ")
                     continue
                 break
