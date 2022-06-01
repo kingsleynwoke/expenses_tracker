@@ -1,11 +1,3 @@
-import random 
-import pandas as pd
-import numpy as np
-from datetime import datetime as dt
-from random import choice
-from matplotlib import pyplot as plt
-import json
-
 from add_expense import add_expense_with_category
 from read_and_write import txt_read_from_file
 from sum_category import print_sum_category_expenses
@@ -48,22 +40,26 @@ def final_function():
     This is the calling code, also know known as the main function.
     It calls all the codes above it.
     """
-    #user_choice = display_options()
-    summary()
-    print("press e to continue")
-    print("press q to quit\n")
-    new_input = input("Enter your choice: ")
-
-    while new_input not in ["e", "q"]:
-        print("Your choice is incorrect, please choose e or q")
-        new_input = input('Please enter your choice: ')
-        print()
-    if new_input == "e":
+    while True:
         summary()
-    elif new_input == "q": 
-        print("You have exited the program.")
-    return
+        print("\nEnter e to continue")
+        print("Enter q to quit\n")
+        new_input = input("Please enter your choice: ")
+
+        while new_input not in ["e", "q"]:
+            print("Your choice is incorrect, please choose e or q")
+            new_input = input('Please enter your choice: ')
+            print()
+
+        if new_input == "e":
+            pass
+            
+        elif new_input == "q": 
+            print("You have exited the program.")
+            return
+        continue
 
 if __name__ == "__main__":
-  final_function()
+    final_function()
+  
   

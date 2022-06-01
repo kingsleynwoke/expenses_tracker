@@ -1,9 +1,3 @@
-import random 
-import pandas as pd
-import numpy as np
-from datetime import datetime as dt
-from random import choice
-from matplotlib import pyplot as plt
 import json
 
 def txt_read_from_file():

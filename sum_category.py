@@ -1,11 +1,3 @@
-import random 
-import pandas as pd
-import numpy as np
-from datetime import datetime as dt
-from random import choice
-from matplotlib import pyplot as plt
-import json
-
 from read_and_write import json_read_from_file
 
 def create_category_data():
@@ -40,7 +32,9 @@ def sum_category_expenses():
 def print_sum_category_expenses():
     """Print sum of expenses for each category"""
     for key, value in sum_category_expenses().items():
-        print(f"{key}: €{value:,}")
+        print(f"{key.title()}: €{value:,}")
+    print(f"\nTotal expenses = €{round(sum(sum_category_expenses().values()), 2):,}")
+    print(f"\nTotal expenses = €{round(sum(sum_category_expenses().values()), 2):,}")
 
 if __name__ == '__main__':
     print_sum_category_expenses()

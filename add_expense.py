@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 from datetime import datetime as dt
 from random import choice
-from matplotlib import pyplot as plt
 import json
 
 def income_expense():
@@ -49,16 +48,19 @@ def add_expense_with_category():
 
     """
     list_of_entries = create_random_data()
-    number_of_expenditure = int(input("How many sets of data do you want to add e.g 0, 1, 2 etc.: "))
-    print()
-    for i in range(number_of_expenditure):
-        name = input("Enter your name: ")
-        date = input("Enter date of expenditure in YYYY-MM-DD: ")
-        cost_in_Euros = float(input("Enter the amount spent in Euros: "))
-        category = str(input("Choose a category e.g cosmetic, party, charity, grocery, clothing, transport, insurance, misc: "))
-        print()
-        entry = {"name": name, "date": date, "cost_in_Euros": cost_in_Euros, "category": category}
-        list_of_entries.append(entry)
+    print("How many data do you want to add, note 0 --> nothing to added.")
+    number_of_expenditure = int(input("Enter your choice e.g 0, 1, 2, etc.: "))
+    
+    if number_of_expenditure == 0:
+        print("You added no record.")
+    else:
+        for i in range(number_of_expenditure):
+            name = input("Enter your name: ")
+            date = input("Enter date of expenditure in YYYY-MM-DD: ")
+            cost_in_Euros = float(input("Enter the amount spent in Euros: "))
+            category = str(input("Choose a category e.g cosmetic, party, charity, grocery, clothing, transport, insurance, misc: "))
+            entry = {"name": name, "date": date, "cost_in_Euros": cost_in_Euros, "category": category}
+            list_of_entries.append(entry)
 
     user_names = [element[key] 
                     for element in list_of_entries
