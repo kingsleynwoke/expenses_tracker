@@ -49,16 +49,19 @@ def add_expense_with_category():
 
     """
     list_of_entries = create_random_data()
-    number_of_expenditure = int(input("How many sets of data do you want to add e.g 0, 1, 2 etc.: "))
-    print()
-    for i in range(number_of_expenditure):
-        name = input("Enter your name: ")
-        date = input("Enter date of expenditure in YYYY-MM-DD: ")
-        cost_in_Euros = float(input("Enter the amount spent in Euros: "))
-        category = str(input("Choose a category e.g cosmetic, party, charity, grocery, clothing, transport, insurance, misc: "))
-        print()
-        entry = {"name": name, "date": date, "cost_in_Euros": cost_in_Euros, "category": category}
-        list_of_entries.append(entry)
+    print("How many data do you want to add, note 0 --> nothing to added.")
+    number_of_expenditure = int(input("Enter your choice e.g 0, 1, 2, etc.: "))
+    
+    if number_of_expenditure == 0:
+        print("You added no record.")
+    else:
+        for i in range(number_of_expenditure):
+            name = input("Enter your name: ")
+            date = input("Enter date of expenditure in YYYY-MM-DD: ")
+            cost_in_Euros = float(input("Enter the amount spent in Euros: "))
+            category = str(input("Choose a category e.g cosmetic, party, charity, grocery, clothing, transport, insurance, misc: "))
+            entry = {"name": name, "date": date, "cost_in_Euros": cost_in_Euros, "category": category}
+            list_of_entries.append(entry)
 
     user_names = [element[key] 
                     for element in list_of_entries
@@ -124,6 +127,7 @@ def print_sum_category_expenses():
     """Print sum of expenses for each category"""
     for key, value in sum_category_expenses().items():
         print(f"{key}: €{value:,}")
+    print(f"\nTotal expenses = €{round(sum(sum_category_expenses().values()), 2):,}")
 
 def check_budget():
     """
@@ -134,7 +138,9 @@ def check_budget():
     """
     expense_data = income_expense()
     from_sum_dictionary = sum_category_expenses()
-    budget = tuple(np.array([0.15, 0.3, 0.05, 0.1, 0.1, 0.1, 0.1, 0.1]) * expense_data)   
+    item_category = ("party", "grocery", "charity", "misc", "clothing", 
+                            "cosmetic", "transport", "insurance")
+    budget_category = tuple(np.array([0.15, 0.3, 0.05, 0.1, 0.1, 0.1, 0.1, 0.1]) * expense_data)   
     balance_dict = {}
 
     def print_budget(input_budget, main_dict, test_key):
@@ -146,22 +152,9 @@ def check_budget():
             balance_dict[test_key] = round(remaining_amount, 2)
     
     for key in from_sum_dictionary:
-        if key == "party":
-            print_budget(budget[0], from_sum_dictionary, key)
-        elif key == "grocery":
-            print_budget(budget[1], from_sum_dictionary, key)
-        elif key == "charity":
-            print_budget(budget[2], from_sum_dictionary, key)
-        elif key == "misc":
-            print_budget(budget[3], from_sum_dictionary, key)
-        elif key == "clothing":
-            print_budget(budget[4], from_sum_dictionary, key)
-        elif key == "cosmetic":
-            print_budget(budget[5], from_sum_dictionary, key)
-        elif key == "transport":
-            print_budget(budget[6], from_sum_dictionary, key)  
-        elif key == "insurance":
-            print_budget(budget[7], from_sum_dictionary, key)        
+        for ind, category in enumerate(item_category):
+            if key == category:
+                print_budget(budget_category[ind], from_sum_dictionary, key)     
     return balance_dict
 
 def plots():
@@ -245,20 +238,24 @@ def final_function():
     It calls all the codes above it.
     """
     #user_choice = display_options()
-    summary()
-    print("press e to continue")
-    print("press q to quit\n")
-    new_input = input("Enter your choice: ")
-
-    while new_input not in ["e", "q"]:
-        print("Your choice is incorrect, please choose e or q")
-        new_input = input('Please enter your choice: ')
-        print()
-    if new_input == "e":
+    while True:
         summary()
-    elif new_input == "q": 
-        print("You have exited the program.")
-    return
+        print("\nEnter e to continue")
+        print("Enter q to quit\n")
+        new_input = input("Please enter your choice: ")
+
+        while new_input not in ["e", "q"]:
+            print("Your choice is incorrect, please choose e or q")
+            new_input = input('Please enter your choice: ')
+            print()
+
+        if new_input == "e":
+            pass
+            
+        elif new_input == "q": 
+            print("You have exited the program.")
+            return
+        continue
 
 if __name__ == "__main__":
   final_function()
