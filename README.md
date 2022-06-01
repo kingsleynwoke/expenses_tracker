@@ -10,4 +10,4 @@ run this code the following python modules need to be installed:
 - matplotlib 
 - json
 
-The main_function() is the calling or main function for the program.
+The main_function.py is the calling or main function for the program.

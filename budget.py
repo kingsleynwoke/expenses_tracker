@@ -9,7 +9,7 @@ def check_budget():
     party_bgt = 0.15,    grocery_bgt = 0.3,  charity_bgt = 0.05,   misc_bgt = 0.1,
     clothing_bgt = 0.1,  cosmetic_bgt = 0.1, transport_bgt = 0.1,  insurance_bgt = 0.1   
     """
-    expense_data = income_expense()
+    expense_data, saving = income_expense()
     from_sum_dictionary = sum_category_expenses()
     item_category = ("party", "grocery", "charity", "misc", "clothing", 
                             "cosmetic", "transport", "insurance")

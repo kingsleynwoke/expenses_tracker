@@ -24,7 +24,8 @@ def create_random_data():
     end_date = dt.strptime("2022-12-31", "%Y-%m-%d")
     create_date = pd.date_range(start_date, end_date)
     date = create_date.strftime("%Y-%m-%d")
-    
+     
+
     data_list = []
     for element in range(120):
         
@@ -47,17 +48,42 @@ def add_expense_with_category():
     Manipulate the data using pandas, read and write it to json and text files.
     """
     list_of_entries = create_random_data()
+    categ = ("cosmetic", "party", "charity", "grocery", "clothing", "transport", "insurance", "misc")
     print("How many data do you want to add, note 0 --> nothing to added.")
     number_of_expenditure = int(input("Enter your choice e.g 0, 1, 2, etc.: "))
     
     if number_of_expenditure == 0:
+        print()
         print("You added no record.")
     else:
         for i in range(number_of_expenditure):
-            name = input("Enter your name: ")
-            date = input("Enter date of expenditure in YYYY-MM-DD: ")
-            cost_in_Euros = float(input("Enter the amount spent in Euros: "))
-            category = str(input("Choose a category e.g cosmetic, party, charity, grocery, clothing, transport, insurance, misc: "))
+            name = input("\nEnter your name: ")
+
+            while True:
+                date = input("Enter date of expenditure in YYYY-MM-DD: ")
+                try:
+                    dt.strptime(date, '%Y-%m-%d')
+                except ValueError:
+                    print("\nInvalid entry, date must be in this format YYYY-MM-DD: ")
+                    continue
+                break
+
+            while True:
+                cost_in_Euros = input("Enter the amount spent in Euros: ")
+                if cost_in_Euros.isdigit():
+                    cost_in_Euros = float(cost_in_Euros)
+                else:
+                    print("\nIncorrect entry, amount must be number: ")
+                    continue
+                break
+
+            while True:
+                category = str(input("Choose a category e.g cosmetic, party, charity, grocery, clothing, transport, insurance, misc: "))
+                if category not in categ:
+                    print("\nInvalid entry, please choose from above listed category: ")
+                    continue
+                break
+
             entry = {"name": name, "date": date, "cost_in_Euros": cost_in_Euros, "category": category}
             list_of_entries.append(entry)
 

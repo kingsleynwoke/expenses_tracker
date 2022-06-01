@@ -5,7 +5,7 @@ def income_expense():
     income = float(input("Please enter your income for the year: "))
     saving = 0.2 * income  # 20% of income
     expenses = 0.8 * income  # 80% of income
-    return expenses
+    return expenses, saving
 
 if __name__ == '__main__':
     income_expense()

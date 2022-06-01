@@ -1,6 +1,7 @@
 from add_expense import add_expense_with_category
 from read_and_write import txt_read_from_file
 from sum_category import print_sum_category_expenses
+from plotting import plots
 
 def display_options():
     """
@@ -20,7 +21,7 @@ def summary():
     """
     user_choice = display_options()
     while user_choice not in ["a", "b", "c", "d"]:
-        print("Your choice is incorrect, please choose from a, b, c, d or q")
+        print("Your choice is incorrect, please choose from a, b, c, d")
         user_choice = input('Please enter your choice: ')
         print()
     if user_choice == "a":
