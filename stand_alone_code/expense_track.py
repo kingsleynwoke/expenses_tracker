@@ -313,10 +313,8 @@ def final_function():
             print("Your choice is incorrect, please choose e or q")
             new_input = input('Please enter your choice: ')
             print()
-
         if new_input == "e":
             pass
-            
         elif new_input == "q": 
             print("\nYou have exited the program.")
             return
