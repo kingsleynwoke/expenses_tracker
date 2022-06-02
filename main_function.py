@@ -3,6 +3,12 @@ from read_and_write import txt_read_from_file
 from sum_category import print_sum_category_expenses
 from plotting import plots
 
+def welcome_message():
+    print("\n#########################################################")
+    print("   !!!        Welcome to expenses tracker         !!! ")
+    print("   !!! Kindly follow instructions on your screen  !!!")
+    print("#########################################################")
+
 def display_options():
     """
     Create a menu like option to aid user input.
@@ -27,15 +33,16 @@ def summary():
     if user_choice == "a":
         add_expense_with_category()
     elif user_choice == "b":
-        print("##################################################")
-        print("These are the records so far")
-        print("##################################################\n")
+        print("######################################################")
+        print("     !!!   These are the records so far   !!!!     ")
+        print("######################################################\n")
         txt_read_from_file()
+        print()
     elif user_choice == "c":
+        print("Enter your income in numbers e.g 37561, 45000 etc.")
         print_sum_category_expenses()
-        print("The allocated savings and sum of expenses so far are: \n")
     elif user_choice == "d":
-        print("Enter your income in numbers e.g 37561, 45000 etc.\n")
+        print("Enter your income in numbers e.g 37561, 45000 etc.")
         plots()
 
 def final_function():
@@ -43,9 +50,10 @@ def final_function():
     This is the calling code, also know known as the main function.
     It calls all the codes above it.
     """
+    welcome_message()
     while True:
         summary()
-        print("\nEnter e to continue")
+        print("Enter e to continue")
         print("Enter q to quit\n")
         new_input = input("Please enter your choice: ")
 
@@ -58,7 +66,7 @@ def final_function():
             pass
             
         elif new_input == "q": 
-            print("You have exited the program.")
+            print("\nYou have exited the program.")
             return
         continue
 

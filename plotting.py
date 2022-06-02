@@ -23,6 +23,10 @@ def plots():
     pie_category = [key for key in sum_category_value.keys()]
     pie_values = [value for value in sum_category_value.values()]
 
+    print("\n###############################################################")
+    print("     !!!  Plotting in progress, kindly check your screen  !!!     ")
+    print("###############################################################\n")
+
     #Plotting begins here.
     #(1) Pie chart
     colors = ["steelblue", "peru", "olive", "silver", 

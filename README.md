@@ -9,5 +9,6 @@ run this code the following python modules need to be installed:
 - datetime 
 - matplotlib 
 - json
+- re (regex)
 
 The main_function.py is the calling or main function for the program.

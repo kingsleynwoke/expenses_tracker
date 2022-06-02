@@ -4,15 +4,7 @@ import numpy as np
 from datetime import datetime as dt
 from random import choice
 import json
-
-def income_expense():
-    """
-    Take income from user and allocate amount for expenses
-    """
-    income = float(input("Please enter your income for the year: "))
-    saving = 0.2 * income  # 20% of income
-    expenses = 0.8 * income  # 80% of income
-    return expenses
+import re
 
 def create_random_data():
     """"
@@ -24,14 +16,13 @@ def create_random_data():
     end_date = dt.strptime("2022-12-31", "%Y-%m-%d")
     create_date = pd.date_range(start_date, end_date)
     date = create_date.strftime("%Y-%m-%d")
-     
 
     data_list = []
     for element in range(120):
         
-        users_list = { "name": np.random.choice(['Peter James', 'Saba Sartipi',
-                    'Jonny Trump', 'Barack Obama', 
-                                       "Mahar Ali", 'James King', 'Gabriel Udoh', "Muhamed Ali"]),
+        users_list = { "name": np.random.choice(['Peter James', 'Saba Angella','Jonny Trump', 
+                                                'Barack Ade', "Mahar Schmidt", 'James Kingsley', 
+                                                'Jonny Udoh', "Muhamed Sani"]),
                       "cost_in_Euros": np.round(np.random.uniform(0.55, 450.24), 2),
                       "date": np.random.choice(date),
                       "category": np.random.choice(["party", "grocery", "charity", "misc",
@@ -54,21 +45,25 @@ def add_expense_with_category():
     number_of_expenditure = int(input("Enter your choice e.g 0, 1, 2, etc.: "))
     
     if number_of_expenditure == 0:
-        print()
-        print("You added no record.")
+        print("\n###################################")
+        print("  !!!  You added no record.  !!!")
+        print("###################################")
     else:
         for i in range(number_of_expenditure):
-            name = input("\nEnter your name: ")
-
+            while True:
+                name = input("\nEnter your name: ")
+                if not (re.match("^[a-zA-Z\s]+$", name) and len(name.strip()) !=0):
+                    print("Invalid entry, name must be alphabetical letter(s).")
+                    continue
+                break
             while True:
                 date = input("Enter date of expenditure in YYYY-MM-DD: ")
                 try:
                     dt.strptime(date, '%Y-%m-%d')
                 except ValueError:
-                    print("\nInvalid entry, date must be in this format YYYY-MM-DD: ")
+                    print("\nInvalid date format, date must be in this form YYYY-MM-DD: ")
                     continue
                 break
-
             while True:
                 cost_in_Euros = input("Enter the amount spent in Euros: ")
                 if cost_in_Euros.isnumeric() or type(cost_in_Euros)==float:
@@ -79,17 +74,17 @@ def add_expense_with_category():
                     print("\nInvalid entry, amount must be number: ")
                     continue
                 break
-
             while True:
-                category = str(input("Choose a category e.g cosmetic, party, charity, grocery, clothing, transport, insurance, misc: "))
+                category = input("Choose a category e.g cosmetic, party, charity, grocery, clothing, transport, insurance, misc: ")
                 if category not in categ:
-                    print("\nInvalid entry, please choose from above listed category: ")
+                    print("\nInvalid entry, please choose from the listed category: ")
                     continue
+                
                 break
-
-            entry = {"name": name, "date": date, "cost_in_Euros": cost_in_Euros, "category": category}
+            
+            entry = {"name": name.title(), "date": date, "cost_in_Euros": cost_in_Euros, "category": category}
             list_of_entries.append(entry)
-
+    
     user_names = [element[key] 
                     for element in list_of_entries
                     for key in element.keys() 
@@ -105,7 +100,7 @@ def add_expense_with_category():
     file_name = "expenses_record.json"
     with open(file_name, "w") as create_file:
         json.dump(list_of_entries, create_file)
-
+    print()
     return list_of_entries
 
 if __name__ == "__main__":

@@ -34,17 +34,18 @@ def sum_category_expenses():
 def print_sum_category_expenses():
     """Print sum of expenses for each category"""
     expense_amt, saved_amt = income_expense()
-    print()
+    print("\n################################################################")
+    print(" !!! The allocated savings and sum of expenses so far are  !!!")
+    print("################################################################\n")
     for key, value in sum_category_expenses().items():
         print(f"{key.title()}: €{value:,}")
     
     summ = round(sum(sum_category_expenses().values()), 2)
-    print("\n##############################################")
+    print("\n--------------------------------------------------------------")
     print(f"Total expenditure = €{summ:,}")
     print(f"Amount allocated for expenses = €{round(expense_amt, 2):,}")
     print(f"Amount allocated for savings = €{round(saved_amt, 2):,}")
-    print("##############################################")
-    
+    print("--------------------------------------------------------------\n")
 
 if __name__ == '__main__':
     print_sum_category_expenses()
