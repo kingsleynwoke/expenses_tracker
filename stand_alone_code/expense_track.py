@@ -99,9 +99,7 @@ def add_expense_with_category():
                 if category not in categ:
                     print("\nInvalid entry, please choose from the listed category: ")
                     continue
-                
                 break
-            
             entry = {"name": name.title(), "date": date, "cost_in_Euros": cost_in_Euros, "category": category}
             list_of_entries.append(entry)
     
