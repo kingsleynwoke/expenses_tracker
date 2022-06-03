@@ -1,8 +1,6 @@
-import random 
 import pandas as pd
 import numpy as np
 from datetime import datetime as dt
-from random import choice
 import json
 import re
 

@@ -1,12 +1,9 @@
-import random 
 import pandas as pd
 import numpy as np
 from datetime import datetime as dt
-from random import choice
 from matplotlib import pyplot as plt
 import json
 import re
-from matplotlib import pyplot as plt
 
 def income_expense():
     """
