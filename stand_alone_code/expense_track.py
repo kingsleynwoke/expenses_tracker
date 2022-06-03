@@ -11,7 +11,7 @@ def income_expense():
     """
     while True:
         income = input("Please enter your income for the year: ")
-        if income.isnumeric() or type(income)==float:
+        if income.isnumeric():
             income = float(income)
         try:
             income = float(income)
@@ -57,10 +57,16 @@ def add_expense_with_category():
     """
     list_of_entries = create_random_data()
     categ = ("cosmetic", "party", "charity", "grocery", "clothing", "transport", "insurance", "misc")
-
-    print("How many data do you want to add, note 0 --> nothing to added.")
-    number_of_expenditure = int(input("Enter your choice e.g 0, 1, 2, etc.: "))
     
+    print("How many data do you want to add, note 0 --> nothing to added.")
+    while True:
+        number = input("Enter your choice e.g 0, 1, 2, etc.: ")
+        if number.isnumeric():
+            number_of_expenditure = int(number)
+        else:
+            print("\nInvalid, entry must be a number: ")
+            continue
+        break
     if number_of_expenditure == 0:
         print("\n###################################")
         print("  !!!  You added no record.  !!!")
@@ -83,7 +89,7 @@ def add_expense_with_category():
                 break
             while True:
                 cost_in_Euros = input("Enter the amount spent in Euros: ")
-                if cost_in_Euros.isnumeric() or type(cost_in_Euros)==float:
+                if cost_in_Euros.isnumeric():
                     cost_in_Euros = float(cost_in_Euros)
                 try:
                     cost_in_Euros = float(cost_in_Euros)

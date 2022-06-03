@@ -4,7 +4,7 @@ def income_expense():
     """
     while True:
         income = input("Please enter your income for the year: ")
-        if income.isnumeric() or type(income)==float:
+        if income.isnumeric():
             income = float(income)
         try:
             income = float(income)
