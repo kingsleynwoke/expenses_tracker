@@ -113,6 +113,13 @@ def add_expense_with_category():
     pandas_data = pd.DataFrame(list_of_entries, index=user_names ,
                           columns=["date", "cost_in_Euros", "category" ])                         
     sorted_data = pandas_data.sort_values(by="date", ascending=True)
+    excel_sorted = pd.DataFrame(list_of_entries, columns=["name", "date", "cost_in_Euros", "category" ])
+    excel_sorted_data = excel_sorted.sort_values(by="date", ascending=True)
+
+    #write excel sheet
+    file_name0 = "expenses_record.xlsx"
+    df_excel = pd.DataFrame(excel_sorted_data)
+    df_excel.to_excel(file_name0, index=False) 
 
     file_name = "expenses_record.txt"
     with open(file_name, 'w') as file:
