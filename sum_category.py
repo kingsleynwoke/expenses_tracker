@@ -38,8 +38,7 @@ def print_sum_category_expenses():
     print(" !!! The allocated savings and sum of expenses so far are  !!!")
     print("################################################################\n")
     for key, value in sum_category_expenses().items():
-        print(f"{key.title()}:   €{value:,}")
-    
+        print(f"{key.title()}  = €{value:,}")
     summ = round(sum(sum_category_expenses().values()), 2)
     print("\n--------------------------------------------------------------")
     print(f"Total expenditure             = €{summ:,}")

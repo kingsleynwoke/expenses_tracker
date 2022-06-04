@@ -94,13 +94,20 @@ def add_expense_with_category():
     pandas_data = pd.DataFrame(list_of_entries, index=user_names ,
                           columns=["date", "cost_in_Euros", "category" ])                         
     sorted_data = pandas_data.sort_values(by="date", ascending=True)
+    excel_sorted = pd.DataFrame(list_of_entries, columns=["name", "date", "cost_in_Euros", "category" ])
+    excel_sorted_data = excel_sorted.sort_values(by="date", ascending=True)
 
-    file_name = "expenses_record.txt"
-    with open(file_name, 'w') as file:
+    #write excel sheet
+    file_name0 = "expenses_record.xlsx"
+    df_excel = pd.DataFrame(excel_sorted_data)
+    df_excel.to_excel(file_name0, index=False) 
+     
+    file_name1 = "expenses_record.txt"
+    with open(file_name1, 'w') as file:
         file.write(sorted_data.to_string())
 
-    file_name = "expenses_record.json"
-    with open(file_name, "w") as create_file:
+    file_name2 = "expenses_record.json"
+    with open(file_name2, "w") as create_file:
         json.dump(list_of_entries, create_file)
     print()
     return list_of_entries
