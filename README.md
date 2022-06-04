@@ -10,5 +10,6 @@ run this code the following python modules need to be installed:
 - matplotlib 
 - json
 - re (regex)
+- openpyxl
 
 The main_function.py is the calling or main function for the program.
