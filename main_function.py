@@ -33,9 +33,9 @@ def summary():
     if user_choice == "a":
         add_expense_with_category()
     elif user_choice == "b":
-        print("######################################################")
+        print("########################################################")
         print("     !!!   These are the records so far   !!!!     ")
-        print("######################################################\n")
+        print("########################################################\n")
         txt_read_from_file()
         print()
     elif user_choice == "c":

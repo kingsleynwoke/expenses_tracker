@@ -99,8 +99,7 @@ def add_expense_with_category():
 
     #write excel sheet
     file_name0 = "expenses_record.xlsx"
-    df_excel = pd.DataFrame(excel_sorted_data)
-    df_excel.to_excel(file_name0, index=False) 
+    excel_sorted_data.to_excel(file_name0, index=False) 
      
     file_name1 = "expenses_record.txt"
     with open(file_name1, 'w') as file:
