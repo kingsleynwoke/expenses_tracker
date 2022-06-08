@@ -8,7 +8,11 @@ def plots():
     balance and summary ofexpenses
     """
     #Create figures
-    plt.style.use(['science', 'notebook', 'grid'])
+    try:
+        plt.style.use(['science', 'notebook', 'grid'])
+    except OSError:
+        print('Style not found, defaulting to original matplotlib style')
+
     plt.rcParams["axes.edgecolor"] = "black"
     plt.rcParams["axes.linewidth"] = 1
     fig0, ax0 = plt.subplots(figsize=(10,8), tight_layout=True)
