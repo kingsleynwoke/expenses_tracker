@@ -1,8 +1,11 @@
 import pandas as pd
 import numpy as np
 from datetime import datetime as dt
-import json
-import re
+import json, re
+from pathlib2 import Path
+from user_validation import validate_input, check_string_is_alphabetic
+from user_validation import check_input_is_numeric, check_input_is_positive
+from user_validation import check_date_format, check_expenses_category
 
 def create_random_data():
     """"
@@ -29,7 +32,7 @@ def create_random_data():
         data_list.append(users_list)
     return data_list
 
-def add_expense_with_category():
+def update_existing_data():
     """
     Take user input for each category of expenses, then update the
     create_random_data() function with these informations.
@@ -54,62 +57,45 @@ def add_expense_with_category():
         print("###################################")
     else:
         for i in range(number_of_expenditure):
-            while True:
-                name = input("\nEnter your name: ")
-                if not (re.match("^[a-zA-Z\s]+$", name) and len(name.strip()) !=0):
-                    print("Invalid entry, name must be alphabetical letter(s).")
-                    continue
-                break
-            while True:
-                date = input("Enter date of expenditure in YYYY-MM-DD: ")
-                try:
-                    dt.strptime(date, '%Y-%m-%d')
-                except ValueError:
-                    print("\nInvalid date format, date must be in this form YYYY-MM-DD: ")
-                    continue
-                break
-            while True:
-                cost_in_Euros = input("Enter the amount spent in Euros: ")
-                if cost_in_Euros.isnumeric():
-                    cost_in_Euros = float(cost_in_Euros)
-                try:
-                    cost_in_Euros = float(cost_in_Euros)
-                except ValueError:
-                    print("\nInvalid entry, amount must be number: ")
-                    continue
-                break
-            while True:
-                category = input("Choose a category e.g cosmetic, party, charity, grocery, clothing, transport, insurance, misc: ")
-                if category not in categ:
-                    print("\nInvalid entry, please choose from the listed category: ")
-                    continue
-                break
+            name = validate_input('\nEnter your Name: ', [check_string_is_alphabetic])
+            
+            date = validate_input('Enter date of expenditure in YYYY-MM-DD: ', [check_date_format])
+            cost_in_Euros = validate_input('Enter the amount spent in Euros: ', 
+                                            [check_input_is_numeric, check_input_is_positive])
+           
+            category = validate_input("Choose a category e.g cosmetic, party, charity, grocery, clothing, transport, insurance, misc: ",
+                                      [check_expenses_category])
+
             entry = {"name": name.title(), "date": date, "cost_in_Euros": cost_in_Euros, "category": category}
             list_of_entries.append(entry)
     
-    user_names = [element[key] 
-                    for element in list_of_entries
-                    for key in element.keys() 
-                    if key == "name"]
+    user_names = [element[key] for element in list_of_entries for key in element.keys() if key == "name"]
+
     pandas_data = pd.DataFrame(list_of_entries, index=user_names ,
                           columns=["date", "cost_in_Euros", "category" ])                         
     sorted_data = pandas_data.sort_values(by="date", ascending=True)
     excel_sorted = pd.DataFrame(list_of_entries, columns=["name", "date", "cost_in_Euros", "category" ])
     excel_sorted_data = excel_sorted.sort_values(by="date", ascending=True)
 
-    #write excel sheet
-    file_name0 = "expenses_record.xlsx"
+    #get folder
+    path_ = "C:\\Users\\Chimezie Kingsley\\Desktop\\Redi_School_Python Foundation\\final_redi_project\\output\\"
+    path_name = Path(path_)  # Path is from in-built python pathlib
+
+    #create and write to excel file
+    file_name0 = path_name/"expenses_record.xlsx"
     excel_sorted_data.to_excel(file_name0, index=False) 
      
-    file_name1 = "expenses_record.txt"
+    #create and write to txt file
+    file_name1 = path_name/"expenses_record.txt"
     with open(file_name1, 'w') as file:
         file.write(sorted_data.to_string())
 
-    file_name2 = "expenses_record.json"
+    #create and write to json file
+    file_name2 = path_name/"expenses_record.json"
     with open(file_name2, "w") as create_file:
         json.dump(list_of_entries, create_file)
     print()
     return list_of_entries
 
 if __name__ == "__main__":
-  add_expense_with_category()
+    update_existing_data()

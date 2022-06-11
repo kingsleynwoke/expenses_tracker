@@ -1,6 +1,6 @@
-from add_expense import add_expense_with_category
-from read_and_write import txt_read_from_file
-from sum_category import print_sum_category_expenses
+from generate_expenses import update_existing_data
+from read_file import read_from_txt
+from sum_expenses_data import print_summary_of_expenses
 from plotting import plots
 
 def welcome_message():
@@ -31,16 +31,16 @@ def summary():
         user_choice = input('Please enter your choice: ')
         print()
     if user_choice == "a":
-        add_expense_with_category()
+        update_existing_data()
     elif user_choice == "b":
         print("########################################################")
         print("     !!!   These are the records so far   !!!!     ")
         print("########################################################\n")
-        txt_read_from_file()
+        read_from_txt()
         print()
     elif user_choice == "c":
         print("Enter your income in numbers e.g 37561, 45000 etc.")
-        print_sum_category_expenses()
+        print_summary_of_expenses()
     elif user_choice == "d":
         print("Enter your income in numbers e.g 37561, 45000 etc.")
         plots()

@@ -1,6 +1,6 @@
 import numpy as np
 from income import income_expense
-from sum_category import sum_category_expenses
+from sum_expenses_data import sum_of_expenses
 
 def check_budget():
     """
@@ -10,7 +10,7 @@ def check_budget():
     clothing_bgt = 0.1,  cosmetic_bgt = 0.1, transport_bgt = 0.1,  insurance_bgt = 0.1   
     """
     expense_data, saved_amount = income_expense()
-    from_sum_dictionary = sum_category_expenses()
+    from_sum_expenses = sum_of_expenses()
     item_category = ("party", "grocery", "charity", "misc", "clothing", "cosmetic", "transport", "insurance")
     budget_category = tuple(np.array([0.15, 0.3, 0.05, 0.1, 0.1, 0.1, 0.1, 0.1]) * expense_data)   
     balance_dict = {}
@@ -25,10 +25,10 @@ def check_budget():
             balance_dict[test_key] = round(remaining_amount, 2)
             #print(f"You still have €{remaining_amount:.2f} for {test_key} budget")
 
-    for key in from_sum_dictionary:
+    for key in from_sum_expenses:
         for ind, category in enumerate(item_category):
             if key == category:
-                print_budget(budget_category[ind], from_sum_dictionary, key)
+                print_budget(budget_category[ind], from_sum_expenses, key)
 
     return balance_dict
 

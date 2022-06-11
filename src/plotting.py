@@ -1,6 +1,7 @@
 from matplotlib import pyplot as plt
-from sum_category import sum_category_expenses
+from sum_expenses_data import sum_of_expenses
 from budget import check_budget
+from pathlib2 import Path
 
 def plots():
     """
@@ -8,14 +9,18 @@ def plots():
     balance and summary ofexpenses
     """
     #Create figures
-    plt.style.use(['science', 'notebook', 'grid'])
+    try:
+        plt.style.use(['science', 'notebook', 'grid'])
+    except OSError:
+            print("Style not found, defaulting to original matplotlib style")
+
     plt.rcParams["axes.edgecolor"] = "black"
     plt.rcParams["axes.linewidth"] = 1
     fig0, ax0 = plt.subplots(figsize=(10,8), tight_layout=True)
     fig1, ax1 = plt.subplots(figsize=(10,8), tight_layout=True)
 
     #Create values for plotting using the following functions
-    sum_category_value = sum_category_expenses()
+    sum_category_value = sum_of_expenses()
     check_budget_value = check_budget()
 
     bar_category = [key for key in check_budget_value.keys()]
@@ -45,8 +50,11 @@ def plots():
     ax1.margins(y=0.2)
     
     plt.show()
-    fig0.savefig("expenses_pie_chart.jpg", dpi=200)
-    fig1.savefig("expenses_bar_chart.jpg", dpi=200)
+    #Enter file path
+    path_ = "C:\\Users\\Chimezie Kingsley\\Desktop\\Redi_School_Python Foundation\\final_redi_project\\output\\"
+    path_name = Path(path_) # Path is from in-built python pathlib
+    fig0.savefig(path_name/"expenses_pie_chart.jpg", dpi=200)
+    fig1.savefig(path_name/"expenses_bar_chart.jpg", dpi=200)
 
 if __name__ == '__main__':
         plots()
