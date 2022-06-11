@@ -1,7 +1,8 @@
 from matplotlib import pyplot as plt
+from pathlib2 import Path
 from sum_expenses_data import sum_of_expenses
 from budget import check_budget
-from pathlib2 import Path
+
 
 def plots():
     """

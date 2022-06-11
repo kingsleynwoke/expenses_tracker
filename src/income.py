@@ -1,5 +1,3 @@
-
-
 from user_validation import validate_input, check_input_is_numeric
 from user_validation import check_input_is_positive
 
