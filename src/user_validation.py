@@ -1,5 +1,21 @@
 import re
 from datetime import datetime as dt
+import numpy as np
+
+list_of_expenses = ("party", "grocery", "charity", "misc", "clothing", "cosmetic", "transport", "insurance")
+#corresponding expenses budget in percentage
+expenses_budget = np.array([0.15, 0.3, 0.05, 0.1, 0.1, 0.1, 0.1, 0.1])
+
+def expenses_categories(input=list_of_expenses):
+    return input
+
+def expenses_in_percentage(input=expenses_budget):
+    return input
+
+def check_expenses_category(input):
+    if input not in list_of_expenses:
+        raise ValueError
+    return input
 
 def check_string_is_alphabetic(input):
     if not (re.match("^[a-zA-Z\s]+$", input) and len(input.strip()) !=0):
@@ -16,12 +32,6 @@ def check_input_is_positive(input):
 
 def check_date_format(input):
     if not dt.strptime(input, '%Y-%m-%d'):
-        raise ValueError
-    return input
-
-def check_expenses_category(input):
-    item_category = ("party", "grocery", "charity", "misc", "clothing", "cosmetic", "transport", "insurance")
-    if input not in item_category:
         raise ValueError
     return input
 

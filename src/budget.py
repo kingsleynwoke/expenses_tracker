@@ -1,6 +1,7 @@
 import numpy as np
 from income import income_expense
 from sum_expenses_data import sum_of_expenses
+from user_validation import expenses_categories, expenses_in_percentage
 
 def check_budget():
     """
@@ -11,8 +12,8 @@ def check_budget():
     """
     expense_data, saved_amount = income_expense()
     from_sum_expenses = sum_of_expenses()
-    item_category = ("party", "grocery", "charity", "misc", "clothing", "cosmetic", "transport", "insurance")
-    budget_category = tuple(np.array([0.15, 0.3, 0.05, 0.1, 0.1, 0.1, 0.1, 0.1]) * expense_data)   
+    item_category = expenses_categories()
+    budget_category = tuple(expenses_in_percentage() * expense_data)      
     balance_dict = {}
 
     def print_budget(input_budget, main_dict, test_key):

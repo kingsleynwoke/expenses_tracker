@@ -40,7 +40,6 @@ def update_existing_data():
     Manipulate the data using pandas, read and write it to json and text files.
     """
     list_of_entries = create_random_data()
-    categ = ("cosmetic", "party", "charity", "grocery", "clothing", "transport", "insurance", "misc")
 
     print("How many data do you want to add, note 0 --> nothing to added.")
     while True:
