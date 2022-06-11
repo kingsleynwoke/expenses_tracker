@@ -1,4 +1,6 @@
 from read_and_write import json_read_from_file
+from datetime import date
+
 
 def create_category_data():
     """
@@ -30,11 +32,13 @@ def sum_category_expenses():
         sum_dictionary[key] = round(sum(data[key]), 2)
     return sum_dictionary
 
+
 def print_sum_category_expenses():
     """Print sum of expenses for each category"""
     for key, value in sum_category_expenses().items():
         print(f"{key.title()}: €{value:,}")
-    print(f"\nTotal expenses = €{round(sum(sum_category_expenses().values()), 2):,}")
+    print(f"\nTotal accumulated expenses up till the date of {date.today()} is €{round(sum(sum_category_expenses().values()), 2):,}")
+
 
 if __name__ == '__main__':
     print_sum_category_expenses()
