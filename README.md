@@ -7,6 +7,7 @@ The aim of this program is to track expenses across sets of user-defined categor
 The programe dependencies are listed in the requirements.txt.
 
 **Note:**
+
     1. To visualize the data in nice looking kindly install SciencePlots
     1. Latex needs to be installed first before installing it
     1. The installation guide can be found in [installation page](https://pypi.org/project/SciencePlots/)
