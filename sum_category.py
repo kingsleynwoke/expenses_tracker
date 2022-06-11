@@ -19,6 +19,7 @@ def create_category_data():
         category_data[name] = temp_data
     return category_data
 
+
 def sum_category_expenses():
     """
     Sum amount of each category expenses
