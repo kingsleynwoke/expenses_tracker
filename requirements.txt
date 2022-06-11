@@ -1,0 +1,10 @@
+python==3.10.4
+numpy==1.22.2
+pandas==1.4.2
+matplotlib==3.5.1
+openpyxl==3.0.10
+pathlib2==2 2.3.7.post1
+sciencellots==1.0.9
+json
+re
+datetime
