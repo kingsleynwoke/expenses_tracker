@@ -1,6 +1,6 @@
 import json
 import pandas as pd
-from pathlib import Path
+from pathlib2 import Path
 
 #Enter file path
 path_ = "C:\\Users\\Chimezie Kingsley\\Desktop\\Redi_School_Python Foundation\\final_redi_project\\output\\"
