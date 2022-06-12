@@ -3,9 +3,7 @@ import numpy as np
 from datetime import datetime as dt
 import json, re
 from pathlib2 import Path
-from user_validation import validate_input, check_string_is_alphabetic
-from user_validation import check_input_is_numeric, check_input_is_positive
-from user_validation import check_date_format, check_expenses_category
+import user_validation as u_val
 
 def create_random_data():
     """"
@@ -56,14 +54,14 @@ def update_existing_data():
         print("###################################")
     else:
         for i in range(number_of_expenditure):
-            name = validate_input('\nEnter your Name: ', [check_string_is_alphabetic])
+            name = u_val.validate_input('\nEnter your Name: ', [u_val.check_string_is_alphabetic])
             
-            date = validate_input('Enter date of expenditure in YYYY-MM-DD: ', [check_date_format])
-            cost_in_Euros = validate_input('Enter the amount spent in Euros: ', 
-                                            [check_input_is_numeric, check_input_is_positive])
+            date = u_val.validate_input('Enter date of expenditure in YYYY-MM-DD: ', [u_val.check_date_format])
+            cost_in_Euros = u_val.validate_input('Enter the amount spent in Euros: ', 
+                                            [u_val.check_input_is_numeric, u_val.check_input_is_positive])
            
-            category = validate_input("Choose a category e.g cosmetic, party, charity, grocery, clothing, transport, insurance, misc: ",
-                                      [check_expenses_category])
+            category = u_val.validate_input("Choose a category e.g cosmetic, party, charity, grocery, clothing, transport, insurance, misc: ",
+                                      [u_val.check_expenses_category])
 
             entry = {"name": name.title(), "date": date, "cost_in_Euros": cost_in_Euros, "category": category}
             list_of_entries.append(entry)

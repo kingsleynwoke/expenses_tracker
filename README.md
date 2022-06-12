@@ -21,7 +21,7 @@ The programe dependencies are listed in the requirements.txt.
     - import income.py and read_file.py
 1.  **budget.py** 
     - import sum_expenses_data.py, user_validation.py and income.py
-1.  plotting.py
+1.  **plotting.py**
     - import budget.py and sum_expenses_data.py
 1.  **main_function.py**
     - import generate_expenses.py and read_file.py

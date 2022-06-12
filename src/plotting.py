@@ -3,7 +3,6 @@ from pathlib2 import Path
 from sum_expenses_data import sum_of_expenses
 from budget import check_budget
 
-
 def plots():
     """
     Plots bar and pie chart for visualising summary of remaing
