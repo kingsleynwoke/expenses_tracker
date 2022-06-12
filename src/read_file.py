@@ -1,26 +1,24 @@
 import json
 import pandas as pd
-from pathlib2 import Path
+import pathlib2
+import user_validation as u_val
 
-#Enter file path
-path_ = "C:\\Users\\Chimezie Kingsley\\Desktop\\Redi_School_Python Foundation\\final_redi_project\\output\\"
-path_name = Path(path_) # Path is from in-built python pathlib
-
+folder = "output"
 def read_from_txt():
     """Read text files"""
-    file_name = path_name/"expenses_record.txt"
+    file_name = u_val.creat_folder(folder)/"expenses_record.txt"
     with open(file_name, 'r') as f:
         print(f.read())
 
 def read_from_json():
     """Read json files"""
-    file_name = path_name/"expenses_record.json"
+    file_name = u_val.creat_folder(folder)/"expenses_record.json"
     with open(file_name) as saved_file:
         file_result = json.load(saved_file)
     return file_result
 
 def read_from_xlsx():
-    file_name = path_name/"expenses_record.xlsx"
+    file_name = u_val.creat_folder(folder)/"expenses_record.xlsx"
     excel_sheet = pd.read_excel(file_name)
     print(excel_sheet)
 

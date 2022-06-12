@@ -1,6 +1,7 @@
 import re
 from datetime import datetime as dt
 import numpy as np
+import pathlib2
 
 list_of_expenses = ("party", "grocery", "charity", "misc", "clothing", "cosmetic", "transport", "insurance")
 #corresponding expenses budget in percentage
@@ -16,6 +17,12 @@ def check_expenses_category(input):
     if input not in list_of_expenses:
         raise ValueError
     return input
+
+def creat_folder(folder_name):
+    path_ = pathlib2.Path.cwd().resolve() 
+    output_path = path_.parent / folder_name
+    output_path.mkdir(parents=True, exist_ok=True) #added parents=True for creating folder > 1
+    return output_path
 
 def check_string_is_alphabetic(input):
     if not (re.match("^[a-zA-Z\s]+$", input) and len(input.strip()) !=0):

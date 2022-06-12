@@ -29,7 +29,7 @@ def plots():
     pie_values = [value for value in sum_category_value.values()]
 
     print("\n###############################################################")
-    print("     !!!  Plotting in progress, kindly check your screen  !!!     ")
+    print("    !!!  Plotting in progress, kindly check your screen  !!!     ")
     print("###############################################################\n")
 
     #Plotting begins here.

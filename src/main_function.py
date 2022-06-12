@@ -32,6 +32,7 @@ def summary():
         print()
     if user_choice == "a":
         update_existing_data()
+      
     elif user_choice == "b":
         print("########################################################")
         print("     !!!   These are the records so far   !!!!     ")

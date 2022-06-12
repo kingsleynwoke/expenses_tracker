@@ -1,8 +1,8 @@
 import pandas as pd
 import numpy as np
 from datetime import datetime as dt
-import json, re
-from pathlib2 import Path
+import json, re, os
+import pathlib2
 import user_validation as u_val
 
 def create_random_data():
@@ -49,9 +49,9 @@ def update_existing_data():
             continue
         break
     if number_of_expenditure == 0:
-        print("\n###################################")
-        print("  !!!  You added no record.  !!!")
-        print("###################################")
+        print("\n#############################################################################")
+        print("  !!!  You added no record, check 'output' directory for existing records  !!!")
+        print("#############################################################################")
     else:
         for i in range(number_of_expenditure):
             name = u_val.validate_input('\nEnter your Name: ', [u_val.check_string_is_alphabetic])
@@ -65,7 +65,10 @@ def update_existing_data():
 
             entry = {"name": name.title(), "date": date, "cost_in_Euros": cost_in_Euros, "category": category}
             list_of_entries.append(entry)
-    
+        print("\n############################################################")
+        print(" !!!   Check 'output' directory for updated records  !!!! ")
+        print("##########################################################")
+
     user_names = [element[key] for element in list_of_entries for key in element.keys() if key == "name"]
 
     pandas_data = pd.DataFrame(list_of_entries, index=user_names ,
@@ -74,21 +77,18 @@ def update_existing_data():
     excel_sorted = pd.DataFrame(list_of_entries, columns=["name", "date", "cost_in_Euros", "category" ])
     excel_sorted_data = excel_sorted.sort_values(by="date", ascending=True)
 
-    #get folder
-    path_ = "C:\\Users\\Chimezie Kingsley\\Desktop\\Redi_School_Python Foundation\\final_redi_project\\output\\"
-    path_name = Path(path_)  # Path is from in-built python pathlib
-
     #create and write to excel file
-    file_name0 = path_name/"expenses_record.xlsx"
+    directory_name = "output"
+    file_name0 = u_val.creat_folder(directory_name)/"expenses_record.xlsx"
     excel_sorted_data.to_excel(file_name0, index=False) 
      
     #create and write to txt file
-    file_name1 = path_name/"expenses_record.txt"
+    file_name1 = u_val.creat_folder(directory_name)/"expenses_record.txt"
     with open(file_name1, 'w') as file:
         file.write(sorted_data.to_string())
 
     #create and write to json file
-    file_name2 = path_name/"expenses_record.json"
+    file_name2 = u_val.creat_folder(directory_name)/"expenses_record.json"
     with open(file_name2, "w") as create_file:
         json.dump(list_of_entries, create_file)
     print()
