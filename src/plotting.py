@@ -1,7 +1,8 @@
 from matplotlib import pyplot as plt
-from pathlib2 import Path
+import pathlib2 
 from sum_expenses_data import sum_of_expenses
 from budget import check_budget
+import user_validation as u_val
 
 def plots():
     """
@@ -51,10 +52,12 @@ def plots():
     
     plt.show()
     #Enter file path
-    path_ = "C:\\Users\\Chimezie Kingsley\\Desktop\\Redi_School_Python Foundation\\final_redi_project\\output\\"
-    path_name = Path(path_) # Path is from in-built python pathlib
-    fig0.savefig(path_name/"expenses_pie_chart.jpg", dpi=200)
-    fig1.savefig(path_name/"expenses_bar_chart.jpg", dpi=200)
+    folder_name = "output"
+    file_name0 = "expenses_pie_chart.jpg"
+    file_name1 = "expenses_bar_chart.jpg"
+
+    fig0.savefig(u_val.creat_folder(folder_name)/file_name0, dpi=200)
+    fig1.savefig(u_val.creat_folder(folder_name)/file_name1, dpi=200)
 
 if __name__ == '__main__':
         plots()

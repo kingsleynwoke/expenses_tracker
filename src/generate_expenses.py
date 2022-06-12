@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from datetime import datetime as dt
-import json, re, os
+import json, re
 import pathlib2
 import user_validation as u_val
 
@@ -49,9 +49,9 @@ def update_existing_data():
             continue
         break
     if number_of_expenditure == 0:
-        print("\n#############################################################################")
+        print("\n################################################################################")
         print("  !!!  You added no record, check 'output' directory for existing records  !!!")
-        print("#############################################################################")
+        print("################################################################################")
     else:
         for i in range(number_of_expenditure):
             name = u_val.validate_input('\nEnter your Name: ', [u_val.check_string_is_alphabetic])
