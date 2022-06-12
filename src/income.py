@@ -4,7 +4,7 @@ def income_expense():
     """
     Take income from user and allocate amount for expenses
     """
-    income = validate_input('Please enter your annual income: ', 
+    income = u_val.validate_input('Please enter your annual income: ', 
                             [u_val.check_input_is_numeric, u_val.check_input_is_positive])
 
     saving = 0.2 * income  # 20% of income
