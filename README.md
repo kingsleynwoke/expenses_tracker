@@ -15,6 +15,8 @@ The programe dependencies are listed in the requirements.txt.
 #### Below shows the scripts dependency
 1.  **income.py**
     - import user_validation.py
+1. **read_file.py**
+    - import user_validation
 1.  **generate_expenses.py**
     - import user_validation.py
 1.  **sum_expenses_data.py**
