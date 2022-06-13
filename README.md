@@ -1,6 +1,6 @@
 #### **ReDI School of Digital Integration**
 **Semester:** Spring 2022 <br>
-**Course:** Python Foundation semester project <br>
+**Course:** Python Foundation Semester Project <br>
 **Topic:** Expenses Tracker
 
 The aim of this program is to track expenses across sets of user-defined categories of expenses.
