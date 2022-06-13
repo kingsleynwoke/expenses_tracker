@@ -9,7 +9,7 @@ def check_budget():
     values were allocated as a percentage:
     party_bgt = 0.15,    grocery_bgt = 0.3,  charity_bgt = 0.05,   misc_bgt = 0.1,
     clothing_bgt = 0.1,  cosmetic_bgt = 0.1, transport_bgt = 0.1,  insurance_bgt = 0.1   
-    """
+    """ 
     expense_data, saved_amount = income_expense()
     from_sum_expenses = sum_of_expenses()
     item_category = u_val.expenses_categories()

@@ -1,7 +1,7 @@
 from read_file import read_from_json
 from income import income_expense
 
-def create_random_data():
+def create_key_data():
     """
     Create a dictionary containing only categories of expenses
     as key and their respective amount as values.
@@ -26,7 +26,7 @@ def sum_of_expenses():
     Sum amount of each category expenses
     """
     sum_dictionary = {}
-    data = create_random_data()
+    data = create_key_data()
     for key in data.keys():
         sum_dictionary[key] = round(sum(data[key]), 2)
     return sum_dictionary
