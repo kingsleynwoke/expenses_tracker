@@ -8,7 +8,7 @@ import glob
  # user has already a list of expenses and wants to upload to the existing data base
 
 def merge_excel():
- path = "/Users/maharali/Desktop/Kingsleys_File/redi_project"
+ path = input(" Please write the path name  in quotation eg. /Users/<username>/<rest of the path>")
  file_list = glob.glob(path + "/*.xlsx")
  excel_list = []
 
@@ -18,7 +18,7 @@ def merge_excel():
  excel_merged = pd.DataFrame()
  for excel_file in excel_list:
   excel_merged = excel_merged.append(excel_file, ignore_index=True)
-  excel_merged.to_excel("total_expense_record.xlsx", index=False)
+  excel_merged.to_excel("total_expense_record.xlsx", index=True)
 
 
 if __name__ == "__main__":
