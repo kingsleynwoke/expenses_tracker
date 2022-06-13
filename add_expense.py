@@ -5,6 +5,7 @@ from datetime import datetime as dt
 from random import choice
 import json
 
+
 def income_expense():
     """
     Take income from user and allocate amount for expenses
@@ -13,6 +14,7 @@ def income_expense():
     saving = 0.2 * income  # 20% of income
     expenses = 0.8 * income  # 80% of income
     return expenses
+
 
 def create_random_data():
     """"
@@ -29,15 +31,14 @@ def create_random_data():
     for element in range(120):
         
         users_list = { "name": np.random.choice(['Peter James', 'Saba Sartipi',
-                    'Jonny Trump', 'Barack Obama', 
-                                       "Mahar Ali", 'James King', 'Gabriel Udoh', "Muhamed Ali"]),
-                      "cost_in_Euros": np.round(np.random.uniform(0.55, 450.24), 2),
-                      "date": np.random.choice(date),
+                    'Jonny Trump', 'Barack Obama', "Mahar Ali", 'James King', 'Gabriel Udoh', "Muhamed Ali"]),
+                      "cost_in_Euros": np.round(np.random.uniform(0.55, 450.24), 2), "date": np.random.choice(date),
                       "category": np.random.choice(["party", "grocery", "charity", "misc",
                                                 "clothing", "cosmetic", "transport", "insurance"])
                     }
         data_list.append(users_list)
     return data_list
+
 
 def add_expense_with_category():
     """
@@ -61,13 +62,13 @@ def add_expense_with_category():
             entry = {"name": name, "date": date, "cost_in_Euros": cost_in_Euros, "category": category}
             list_of_entries.append(entry)
 
-    user_names = [element[key] 
-                    for element in list_of_entries
-                    for key in element.keys() 
-                    if key == "name"]
-    pandas_data = pd.DataFrame(list_of_entries, index=user_names ,
-                          columns=["date", "cost_in_Euros", "category" ])                         
+    user_names = [element[key] for element in list_of_entries for key in element.keys() if key == "name"]
+    pandas_data = pd.DataFrame(list_of_entries, index=user_names, columns=["date", "cost_in_Euros", "category"])
     sorted_data = pandas_data.sort_values(by="date", ascending=True)
+    # data_to_excel = pd.DataFrame(list_of_entries, columns=["name", "date", "cost_in_Euros", "category"])
+
+    file_to_excel = pandas_data.to_excel("expenses_record.xlsx")
+
 
     file_name = "expenses_record.txt"
     with open(file_name, 'w') as file:
@@ -78,6 +79,7 @@ def add_expense_with_category():
         json.dump(list_of_entries, create_file)
 
     return list_of_entries
+
 
 if __name__ == "__main__":
   add_expense_with_category()
