@@ -13,11 +13,7 @@ The programe dependencies are listed in the requirements.txt.
 1. The installation guide can be found in [installation page](https://pypi.org/project/SciencePlots/)
 
 #### Below shows the scripts dependency
-1.  **income.py**
-    - import user_validation.py
-1. **read_file.py**
-    - import user_validation
-1.  **generate_expenses.py**
+1.  **income.py**, **read_file.py** and **generate_expenses.py**
     - import user_validation.py
 1.  **sum_expenses_data.py**
     - import income.py and read_file.py
