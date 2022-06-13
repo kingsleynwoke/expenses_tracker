@@ -1,7 +1,5 @@
 # Project custom entries
 *.jpg
-*.xlsx
-*.json
 *.mp4
 
 # Byte-compiled / optimized / DLL files
