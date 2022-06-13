@@ -5,6 +5,8 @@ import pathlib2
 
 list_of_expenses = ("party", "grocery", "charity", "misc", "clothing", "cosmetic", "transport", "insurance")
 #corresponding expenses budget in percentage
+#party_bgt = 0.15,    grocery_bgt = 0.3,  charity_bgt = 0.05,   misc_bgt = 0.1,
+#clothing_bgt = 0.1,  cosmetic_bgt = 0.1, transport_bgt = 0.1,  insurance_bgt = 0.1
 expenses_budget = np.array([0.15, 0.3, 0.05, 0.1, 0.1, 0.1, 0.1, 0.1])
 
 def expenses_categories(input=list_of_expenses):
