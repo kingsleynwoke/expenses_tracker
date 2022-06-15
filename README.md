@@ -25,4 +25,5 @@ The programe dependencies are listed in the requirements.txt.
     - import generate_expenses.py and read_file.py
     - import sum_expenses.py and plotting.py
 
-The main_function.py script is the calling or main function for the program.
+The main_function.py script is the calling or main function for the program. 
+*To run the code you have to be in the redi_project*
