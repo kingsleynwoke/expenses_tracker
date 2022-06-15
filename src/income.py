@@ -2,11 +2,11 @@
 import sys
 import os
 sys.path.insert(0, os.path.abspath(os.curdir))
-
+from datetime import datetime as dt
 from src import user_validation as u_val
-from typing import Callable, Dict
+from typing import Tuple
 
-def income_expense() -> Dict[float, float]:
+def income_expense() -> Tuple[float, float]:
     """
     Take income from user and allocate amount for expenses
     """
@@ -16,6 +16,8 @@ def income_expense() -> Dict[float, float]:
     saving: float = 0.2 * income  # 20% of income
     expenses: float = 0.8 * income  # 80% of income
     return expenses, saving
+start_date = dt.strptime("2022-01-01", "%Y-%m-%d")
+
 
 if __name__ == '__main__':
     print(income_expense())

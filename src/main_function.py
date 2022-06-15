@@ -7,13 +7,13 @@ from src.read_file import read_from_txt
 from src.sum_expenses_data import print_summary_of_expenses
 from src.plotting import plots
 
-def welcome_message():
+def welcome_message() -> None:
     print("\n#########################################################")
     print("   !!!        Welcome to expenses tracker         !!! ")
     print("   !!! Kindly follow instructions on your screen  !!!")
     print("#########################################################")
 
-def display_options():
+def display_options() -> str:
     """
     Create a menu like option to aid user input.
     """
@@ -25,7 +25,7 @@ def display_options():
     print()
     return user_input
 
-def summary():
+def summary() -> None:
     """
     Based on user input execute the following.
     """
@@ -41,7 +41,7 @@ def summary():
         print("########################################################")
         print("     !!!   These are the records so far   !!!!     ")
         print("########################################################\n")
-        read_from_txt()
+        print(read_from_txt())
         print()
     elif user_choice == "c":
         print("Enter your income in numbers e.g 37561, 45000 etc.")
@@ -50,7 +50,7 @@ def summary():
         print("Enter your income in numbers e.g 37561, 45000 etc.")
         plots()
 
-def final_function():
+def final_function() -> None:
     """
     This is the calling code, also know known as the main function.
     It calls all the codes above it.

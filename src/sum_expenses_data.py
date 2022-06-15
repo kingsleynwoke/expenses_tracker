@@ -1,11 +1,12 @@
 import sys
 import os
+from typing import Dict
 sys.path.insert(0, os.path.abspath(os.curdir))
 
 from src.read_file import read_from_json
 from src.income import income_expense
 
-def create_key_data():
+def create_key_data() -> Dict:
     """
     Create a dictionary containing only categories of expenses
     as key and their respective amount as values.
@@ -25,7 +26,7 @@ def create_key_data():
         category_data[name] = temp_data
     return category_data
 
-def sum_of_expenses():
+def sum_of_expenses() -> Dict:
     """
     Sum amount of each category expenses
     """
@@ -35,7 +36,7 @@ def sum_of_expenses():
         sum_dictionary[key] = round(sum(data[key]), 2)
     return sum_dictionary
 
-def print_summary_of_expenses():
+def print_summary_of_expenses() -> None:
     """Print sum of expenses for each category"""
     expense_amt, saved_amt = income_expense()
     print("\n################################################################")

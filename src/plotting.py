@@ -2,13 +2,14 @@ import sys
 import os
 from matplotlib import pyplot as plt
 import pathlib2 
+from typing import Dict, List
 
 sys.path.insert(0, os.path.abspath(os.curdir))
 from src.sum_expenses_data import sum_of_expenses
 from src.budget import check_budget
 from src import user_validation as u_val
 
-def plots():
+def plots() -> None:
     """
     Plots bar and pie chart for visualising summary of remaing
     balance and summary ofexpenses
@@ -25,13 +26,13 @@ def plots():
     fig1, ax1 = plt.subplots(figsize=(10,8), tight_layout=True)
 
     #Create values for plotting using the following functions
-    sum_category_value = sum_of_expenses()
-    check_budget_value = check_budget()
+    sum_category_value: Dict[str: float] = sum_of_expenses()
+    check_budget_value: Dict[str: float] = check_budget()
 
-    bar_category = [key for key in check_budget_value.keys()]
-    bar_values = [value for value in check_budget_value.values()]
-    pie_category = [key for key in sum_category_value.keys()]
-    pie_values = [value for value in sum_category_value.values()]
+    bar_category: str = [key for key in check_budget_value.keys()]
+    bar_values: float = [value for value in check_budget_value.values()]
+    pie_category: str = [key for key in sum_category_value.keys()]
+    pie_values: float = [value for value in sum_category_value.values()]
 
     print("\n###############################################################")
     print("    !!!  Plotting in progress, kindly check your screen  !!!     ")
@@ -39,7 +40,7 @@ def plots():
 
     #Plotting begins here.
     #(1) Pie chart
-    colors = ["steelblue", "peru", "olive", "silver", 
+    colors: List[str] = ["steelblue", "peru", "olive", "silver", 
               "cadetblue", "dimgray", "sienna", "darkgreen"]
     ax0.pie(pie_values, labels=pie_category, autopct='%.1f%%', colors=colors,
             wedgeprops={'linewidth': 1.0, 'edgecolor': 'black'})

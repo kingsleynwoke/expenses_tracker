@@ -1,6 +1,7 @@
 import sys
 import os
 import numpy as np
+from typing import Tuple, Dict, Any
 
 sys.path.insert(0, os.path.abspath(os.curdir))
 from src.sum_expenses_data import sum_of_expenses
@@ -15,20 +16,18 @@ def check_budget():
     clothing_bgt = 0.1,  cosmetic_bgt = 0.1, transport_bgt = 0.1,  insurance_bgt = 0.1   
     """ 
     expense_data, saved_amount = income_expense()
-    from_sum_expenses = sum_of_expenses()
-    item_category = u_val.expenses_categories()
-    budget_category = tuple(u_val.expenses_in_percentage() * expense_data)      
+    from_sum_expenses: Dict[str: float] = sum_of_expenses()
+    item_category: Tuple = u_val.expenses_categories()
+    budget_category: Tuple = tuple(u_val.expenses_in_percentage() * expense_data)      
     balance_dict = {}
 
-    def print_budget(input_budget, main_dict, test_key):
+    def print_budget(input_budget: float, main_dict: Dict, test_key: str) -> Dict:
         if input_budget < main_dict[test_key]:
-            remaining_amount = input_budget - main_dict[test_key]
+            remaining_amount: float = input_budget - main_dict[test_key]
             balance_dict[test_key] = round(remaining_amount, 2)
-            #print(f"You have exceeded your {test_key} budget by -€{abs(remaining_amount):.2f}")
         else:
-            remaining_amount = input_budget - main_dict[test_key]
+            remaining_amount: float = input_budget - main_dict[test_key]
             balance_dict[test_key] = round(remaining_amount, 2)
-            #print(f"You still have €{remaining_amount:.2f} for {test_key} budget")
 
     for key in from_sum_expenses:
         for ind, category in enumerate(item_category):

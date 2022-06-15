@@ -6,18 +6,19 @@ from datetime import datetime as dt
 import json
 import re
 import pathlib2
+from typing import Dict
 sys.path.insert(0, os.path.abspath(os.curdir))
 
 from src import user_validation as u_val
 
-def create_random_data():
+def create_random_data() -> Dict:
     """"
     We need data to do our analysis, since we don't have any we randomely 
     generated one using numpy random module.
     """
     #np.random.seed(0)
-    start_date = dt.strptime("2022-01-01", "%Y-%m-%d")
-    end_date = dt.strptime("2022-12-31", "%Y-%m-%d")
+    start_date: "datetime" = dt.strptime("2022-01-01", "%Y-%m-%d")
+    end_date: "datetime" = dt.strptime("2022-12-31", "%Y-%m-%d")
     create_date = pd.date_range(start_date, end_date)
     date = create_date.strftime("%Y-%m-%d")
 
@@ -35,7 +36,7 @@ def create_random_data():
         data_list.append(users_list)
     return data_list
 
-def update_existing_data():
+def update_existing_data() -> Dict:
     """
     Take user input for each category of expenses, then update the
     create_random_data() function with these informations.
@@ -46,7 +47,7 @@ def update_existing_data():
 
     print("How many data do you want to add, note 0 --> nothing to added.")
     while True:
-        number = input("Enter your choice e.g 0, 1, 2, etc.: ")
+        number: str = input("Enter your choice e.g 0, 1, 2, etc.: ")
         if number.isnumeric():
             number_of_expenditure = int(number)
         else:
