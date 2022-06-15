@@ -1,3 +1,5 @@
+import sys
+import os
 import re
 from datetime import datetime as dt
 import numpy as np
@@ -21,8 +23,9 @@ def check_expenses_category(input):
     return input
 
 def creat_folder(folder_name):
-    path_ = pathlib2.Path.cwd().resolve() 
-    output_path = path_.parent / folder_name
+    #path_ = pathlib2.Path.cwd().resolve() 
+    path_ = pathlib2.Path(os.curdir, "redi_project")
+    output_path = path_/folder_name
     output_path.mkdir(parents=True, exist_ok=True) #added parents=True for creating folder > 1
     return output_path
 

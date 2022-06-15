@@ -1,5 +1,9 @@
-from read_file import read_from_json
-from income import income_expense
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.curdir))
+
+from redi_project.src.read_file import read_from_json
+from redi_project.src.income import income_expense
 
 def create_key_data():
     """

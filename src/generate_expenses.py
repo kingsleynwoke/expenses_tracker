@@ -1,9 +1,14 @@
+import sys
+import os
 import pandas as pd
 import numpy as np
 from datetime import datetime as dt
-import json, re
+import json
+import re
 import pathlib2
-import user_validation as u_val
+sys.path.insert(0, os.path.abspath(os.curdir))
+
+from redi_project.src import user_validation as u_val
 
 def create_random_data():
     """"

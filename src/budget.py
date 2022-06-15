@@ -1,7 +1,11 @@
+import sys
+import os
 import numpy as np
-from income import income_expense
-from sum_expenses_data import sum_of_expenses
-import user_validation as u_val
+
+sys.path.insert(0, os.path.abspath(os.curdir))
+from redi_project.src.sum_expenses_data import sum_of_expenses
+from redi_project.src.income import income_expense
+from redi_project.src import user_validation as u_val
 
 def check_budget():
     """

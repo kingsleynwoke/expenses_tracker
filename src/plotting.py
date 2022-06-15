@@ -1,8 +1,12 @@
+import sys
+import os
 from matplotlib import pyplot as plt
 import pathlib2 
-from sum_expenses_data import sum_of_expenses
-from budget import check_budget
-import user_validation as u_val
+
+sys.path.insert(0, os.path.abspath(os.curdir))
+from redi_project.src.sum_expenses_data import sum_of_expenses
+from redi_project.src.budget import check_budget
+from redi_project.src import user_validation as u_val
 
 def plots():
     """
@@ -44,7 +48,7 @@ def plots():
     #(2) Bar chart
     new_bar = ax1.bar(bar_category, bar_values, ec="black")
     ax1.set_title("Remaining balance", fontsize=20, pad=20, color="r", fontweight="bold")
-    ax1.tick_params(rotation=45)
+    ax1.tick_params(axis="x", rotation=45)
     ax1.set_xlabel("Categories", labelpad=15)
     ax1.set_ylabel("Expenses in Euros", labelpad=15 )
     ax1.bar_label(new_bar, padding=3, fontsize='x-large')

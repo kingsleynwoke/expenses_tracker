@@ -1,7 +1,11 @@
+import sys
+import os
 import json
 import pandas as pd
 import pathlib2
-import user_validation as u_val
+
+sys.path.insert(0, os.path.abspath(os.curdir))
+from redi_project.src import user_validation as u_val
 
 folder = "output"
 def read_from_txt():
