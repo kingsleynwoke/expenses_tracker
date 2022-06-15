@@ -3,7 +3,7 @@ import sys
 import os
 sys.path.insert(0, os.path.abspath(os.curdir))
 
-from redi_project.src import user_validation as u_val
+from src import user_validation as u_val
 from typing import Callable, Dict
 
 def income_expense() -> Dict[float, float]:

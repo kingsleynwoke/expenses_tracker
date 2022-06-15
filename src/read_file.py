@@ -5,7 +5,7 @@ import pandas as pd
 import pathlib2
 
 sys.path.insert(0, os.path.abspath(os.curdir))
-from redi_project.src import user_validation as u_val
+from src import user_validation as u_val
 
 folder = "output"
 def read_from_txt():

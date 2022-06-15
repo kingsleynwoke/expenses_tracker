@@ -24,7 +24,7 @@ def check_expenses_category(input):
 
 def creat_folder(folder_name):
     #path_ = pathlib2.Path.cwd().resolve() 
-    path_ = pathlib2.Path(os.curdir, "redi_project")
+    path_ = pathlib2.Path(os.curdir)
     output_path = path_/folder_name
     output_path.mkdir(parents=True, exist_ok=True) #added parents=True for creating folder > 1
     return output_path

@@ -2,10 +2,10 @@ import sys
 import os
 sys.path.insert(0, os.path.abspath(os.curdir))
 
-from redi_project.src.generate_expenses import update_existing_data
-from redi_project.src.read_file import read_from_txt
-from redi_project.src.sum_expenses_data import print_summary_of_expenses
-from redi_project.src.plotting import plots
+from src.generate_expenses import update_existing_data
+from src.read_file import read_from_txt
+from src.sum_expenses_data import print_summary_of_expenses
+from src.plotting import plots
 
 def welcome_message():
     print("\n#########################################################")

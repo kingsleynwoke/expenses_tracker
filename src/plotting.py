@@ -4,9 +4,9 @@ from matplotlib import pyplot as plt
 import pathlib2 
 
 sys.path.insert(0, os.path.abspath(os.curdir))
-from redi_project.src.sum_expenses_data import sum_of_expenses
-from redi_project.src.budget import check_budget
-from redi_project.src import user_validation as u_val
+from src.sum_expenses_data import sum_of_expenses
+from src.budget import check_budget
+from src import user_validation as u_val
 
 def plots():
     """
