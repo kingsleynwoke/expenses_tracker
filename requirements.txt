@@ -4,6 +4,7 @@ matplotlib==3.5.1
 openpyxl==3.0.10
 pathlib2==2 2.3.7.post1
 scienceplots==1.0.9
+pytest=7.1.2
 json
 re
 datetime
