@@ -16,8 +16,6 @@ def income_expense() -> Tuple[float, float]:
     saving: float = 0.2 * income  # 20% of income
     expenses: float = 0.8 * income  # 80% of income
     return expenses, saving
-start_date = dt.strptime("2022-01-01", "%Y-%m-%d")
-
 
 if __name__ == '__main__':
     print(income_expense())

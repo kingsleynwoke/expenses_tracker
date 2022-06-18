@@ -45,13 +45,13 @@ def print_summary_of_expenses() -> None:
 
     for key, value in sum_of_expenses().items():
         print(f"{key.title()}  = €{value:,}")
-    summ = round(sum(sum_of_expenses().values()), 2)
+    summ = sum(sum_of_expenses().values())
 
     print("\n--------------------------------------------------------------")
-    print(f"Amount allocated for expenses = €{round(expense_amt, 2):,}")
-    print(f"Amount allocated for savings  = €{round(saved_amt, 2):,}")
-    print(f"Total expenditure             = €{summ:,}")
-    print(f"Expenses balance              = €{round(expense_amt - summ, 2):,}")
+    print(f"Amount allocated for expenses = €{expense_amt:,.2f}")
+    print(f"Amount allocated for savings  = €{saved_amt:,.2f}")
+    print(f"Total expenditure             = €{summ:,.2f}")
+    print(f"Expenses balance              = €{(expense_amt - summ):,.2f}")
     
     print("--------------------------------------------------------------\n")
 
