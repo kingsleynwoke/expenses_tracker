@@ -30,6 +30,6 @@ def read_from_xlsx() -> "pandas.DataFrame":
     return excel_sheet
 
 if __name__ == "__main__":
-    print(type(read_from_json()[0]))
+    print(type(read_from_json))
   
     

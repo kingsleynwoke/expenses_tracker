@@ -47,7 +47,7 @@ def update_existing_data() -> Dict:
 
     print("How many data do you want to add, note 0 --> nothing to added.")
     while True:
-        number: str = input("Enter your choice e.g 0, 1, 2, etc.: ")
+        number = input("Enter your choice e.g 0, 1, 2, etc.: ")
         if number.isnumeric():
             number_of_expenditure = int(number)
         else:
