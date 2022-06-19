@@ -12,5 +12,5 @@ def test_check_budget(monkeypatch: MonkeyPatch) -> None:
     for key in expenses_type:
         monkeypatch.setattr("builtins.input", lambda _: "45856.45")
         assert type(budget.check_budget()) is dict
-        assert key in expenses_type
+        assert key in budget.check_budget()
         assert type(budget.check_budget()[key]) is np.float64
