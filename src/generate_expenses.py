@@ -17,13 +17,13 @@ def create_random_data() -> Dict:
     generated one using numpy random module.
     """
     #np.random.seed(0)
-    start_date: "datetime" = dt.strptime("2022-01-01", "%Y-%m-%d")
-    end_date: "datetime" = dt.strptime("2022-12-31", "%Y-%m-%d")
+    start_date = dt.strptime("2022-01-01", "%Y-%m-%d")
+    end_date = dt.strptime("2022-12-31", "%Y-%m-%d")
     create_date = pd.date_range(start_date, end_date)
     date = create_date.strftime("%Y-%m-%d")
 
     data_list = []
-    for element in range(120):
+    for _ in range(120):
         
         users_list = { "name": np.random.choice(['Peter James', 'Saba Angella','Jonny Trump', 
                                                 'Barack Ade', "Mahar Schmidt", 'James Kingsley', 
@@ -55,9 +55,9 @@ def update_existing_data() -> Dict:
             continue
         break
     if number_of_expenditure == 0:
-        print("\n################################################################################")
+        print(f"\n{'=='*40}")
         print("  !!!  You added no record, check 'output' directory for existing records  !!!")
-        print("################################################################################")
+        print(f"{'=='*40}")
     else:
         for i in range(number_of_expenditure):
             name = u_val.validate_input('\nEnter your Name: ', [u_val.check_string_is_alphabetic])
@@ -71,9 +71,9 @@ def update_existing_data() -> Dict:
 
             entry = {"name": name.title(), "date": date, "cost_in_Euros": cost_in_Euros, "category": category}
             list_of_entries.append(entry)
-        print("\n############################################################")
+        print(f"\n{'=='*21}")
         print(" !!!   Check 'output' directory for updated records  !!!! ")
-        print("##########################################################")
+        print(f"{'=='*21}")
 
     user_names = [element[key] for element in list_of_entries for key in element.keys() if key == "name"]
 

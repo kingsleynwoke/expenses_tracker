@@ -6,16 +6,16 @@ import numpy as np
 import pathlib2
 from typing import List, Dict, Tuple, Any
 
-list_of_expenses: Tuple[str] = ("party", "grocery", "charity", "misc", "clothing", "cosmetic", "transport", "insurance")
+list_of_expenses = ("party", "grocery", "charity", "misc", "clothing", "cosmetic", "transport", "insurance")
 #corresponding expenses budget in percentage
 #party_bgt = 0.15,    grocery_bgt = 0.3,  charity_bgt = 0.05,   misc_bgt = 0.1,
 #clothing_bgt = 0.1,  cosmetic_bgt = 0.1, transport_bgt = 0.1,  insurance_bgt = 0.1
-expenses_budget: np.ndarray = np.array([0.15, 0.3, 0.05, 0.1, 0.1, 0.1, 0.1, 0.1])
+expenses_budget  = np.array([0.15, 0.3, 0.05, 0.1, 0.1, 0.1, 0.1, 0.1])
 
-def expenses_categories(input: str=list_of_expenses) -> str:
+def expenses_categories(input: str = list_of_expenses) -> str:
     return input
 
-def expenses_in_percentage(input: float=expenses_budget) -> float:
+def expenses_in_percentage(input: float = expenses_budget) -> float:
     return input
 
 def check_expenses_category(input: str) -> str:
@@ -50,8 +50,8 @@ def check_date_format(input: "date"):
 
 def validate_input(prompt: str, validation_functions_list: List=[]) -> Any:
     while True:
-        general_input: str = input(prompt)
-        has_failed: bool = False
+        general_input = input(prompt)
+        has_failed  = False
         for func in validation_functions_list:
             try:
                general_input = func(general_input)

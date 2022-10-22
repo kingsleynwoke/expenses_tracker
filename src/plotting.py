@@ -29,12 +29,12 @@ def plots() -> None:
     sum_category_value: Dict[str: float] = sum_of_expenses()
     check_budget_value: Dict[str: float] = check_budget()
 
-    bar_category: str = [key for key in check_budget_value.keys()]
-    bar_values: float = [value for value in check_budget_value.values()]
-    pie_category: str = [key for key in sum_category_value.keys()]
-    pie_values: float = [value for value in sum_category_value.values()]
+    bar_category = [key for key in check_budget_value.keys()]
+    bar_values = [value for value in check_budget_value.values()]
+    pie_category = [key for key in sum_category_value.keys()]
+    pie_values = [value for value in sum_category_value.values()]
 
-    print("\n###############################################################")
+    print("\n{'=='*21}###############################################################")
     print("    !!!  Plotting in progress, kindly check your screen  !!!     ")
     print("###############################################################\n")
 

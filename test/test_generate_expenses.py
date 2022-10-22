@@ -10,8 +10,8 @@ def test_create_random_data() -> None:
     list_of_keys = ("name", "cost_in_Euros", "date", "category")
     value_type = (str, float, int, np.str_, np.float64)
     
-    functions = [generate_expenses.create_random_data,
-                 read_file.read_from_json]
+    # functions = [generate_expenses.create_random_data,
+    #              read_file.read_from_json]
             
     for dictionary in generate_expenses.create_random_data():
         for key, value in dictionary.items():

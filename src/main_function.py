@@ -8,10 +8,10 @@ from src.sum_expenses_data import print_summary_of_expenses
 from src.plotting import plots
 
 def welcome_message() -> None:
-    print("\n#########################################################")
+    print(f"\n{'=='*21}")
     print("   !!!        Welcome to expenses tracker         !!! ")
     print("   !!! Kindly follow instructions on your screen  !!!")
-    print("#########################################################")
+    print(f"{'=='*21}")
 
 def display_options() -> str:
     """
@@ -38,9 +38,9 @@ def summary() -> None:
         update_existing_data()
       
     elif user_choice == "b":
-        print("########################################################")
+        print(f"{'=='*21}")
         print("     !!!   These are the records so far   !!!!     ")
-        print("########################################################\n")
+        print(f"{'=='*21}\n")
         print(read_from_txt())
         print()
     elif user_choice == "c":

@@ -13,8 +13,8 @@ def income_expense() -> Tuple[float, float]:
     income = u_val.validate_input('Please enter your annual income: ', 
                             [u_val.check_input_is_numeric, u_val.check_input_is_positive])
 
-    saving: float = 0.2 * income  # 20% of income
-    expenses: float = 0.8 * income  # 80% of income
+    saving = 0.2 * income  # 20% of income
+    expenses = 0.8 * income  # 80% of income
     return expenses, saving
 
 if __name__ == '__main__':

@@ -39,21 +39,20 @@ def sum_of_expenses() -> Dict:
 def print_summary_of_expenses() -> None:
     """Print sum of expenses for each category"""
     expense_amt, saved_amt = income_expense()
-    print("\n################################################################")
+    print(f"\n{'==='*21}")
     print(" !!! The allocated savings and sum of expenses so far are  !!!")
-    print("################################################################\n")
+    print(f"{'==='*21}\n")
 
     for key, value in sum_of_expenses().items():
         print(f"{key.title()}  = €{value:,}")
     summ = sum(sum_of_expenses().values())
 
-    print("\n--------------------------------------------------------------")
-    print(f"Amount allocated for expenses = €{expense_amt:,.2f}")
-    print(f"Amount allocated for savings  = €{saved_amt:,.2f}")
-    print(f"Total expenditure             = €{summ:,.2f}")
-    print(f"Expenses balance              = €{(expense_amt - summ):,.2f}")
-    
-    print("--------------------------------------------------------------\n")
+    print(f"\n{'--'*22}")
+    print(f" Amount allocated for expenses = €{expense_amt:,.2f}")
+    print(f" Amount allocated for savings  = €{saved_amt:,.2f}")
+    print(f" Total expenditure             = €{summ:,.2f}")
+    print(f" Expenses balance              = €{(expense_amt - summ):,.2f}")
+    print(f"{'--'*22}\n")
 
 if __name__ == '__main__':
     print_summary_of_expenses()
