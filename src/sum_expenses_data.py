@@ -48,10 +48,10 @@ def print_summary_of_expenses() -> None:
     summ = sum(sum_of_expenses().values())
 
     print(f"\n{'--'*22}")
-    print(f" Amount allocated for expenses = €{expense_amt:,.2f}")
-    print(f" Amount allocated for savings  = €{saved_amt:,.2f}")
-    print(f" Total expenditure             = €{summ:,.2f}")
-    print(f" Expenses balance              = €{(expense_amt - summ):,.2f}")
+    print(f"{'Amount allocated for expenses':29} = €{expense_amt:,.2f}")
+    print(f"{'Amount allocated for savings':29} = €{saved_amt:,.2f}")
+    print(f"{'Total expenditure':29} = €{summ:,.2f}")
+    print(f"{'Expenses balance':29} = €{(expense_amt - summ):,.2f}")
     print(f"{'--'*22}\n")
 
 if __name__ == '__main__':

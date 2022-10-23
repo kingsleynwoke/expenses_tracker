@@ -34,9 +34,9 @@ def plots() -> None:
     pie_category = [key for key in sum_category_value.keys()]
     pie_values = [value for value in sum_category_value.values()]
 
-    print("\n{'=='*21}###############################################################")
+    print(f"\n{'=='*32}")
     print("    !!!  Plotting in progress, kindly check your screen  !!!     ")
-    print("###############################################################\n")
+    print(f"{'=='*32}\n")
 
     #Plotting begins here.
     #(1) Pie chart
